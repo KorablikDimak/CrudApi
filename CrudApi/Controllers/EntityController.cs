@@ -21,14 +21,14 @@ namespace CrudApi.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult> CreateEntity(TEntity entity)
         {
-            if (await GenericRepository.Create(entity)) return Ok();
+            if (await GenericRepository.CreateAsync(entity)) return Ok();
             return new ConflictResult();
         }
 
         [HttpGet("GetId")]
         public async Task<ActionResult<TEntity>> GetEntity(int id)
         {
-            var entity = await GenericRepository.Get(id);
+            var entity = await GenericRepository.GetAsync(id);
             if (entity == null) return new NotFoundResult();
             return entity;
         }
@@ -36,7 +36,7 @@ namespace CrudApi.Controllers
         [HttpGet("Get")]
         public async Task<ActionResult<IEnumerable<TEntity>>> GetEntities()
         {
-            var entities = await GenericRepository.Get();
+            var entities = await GenericRepository.GetAsync();
             if (entities == null) return new NotFoundResult();
             return new ActionResult<IEnumerable<TEntity>>(entities);
         }
@@ -44,21 +44,21 @@ namespace CrudApi.Controllers
         [HttpPatch("Update")]
         public async Task<ActionResult> UpdateEntity(TEntity entity)
         {
-            if (await GenericRepository.Update(entity)) return Ok();
+            if (await GenericRepository.UpdateAsync(entity)) return Ok();
             return new ConflictResult();
         }
         
         [HttpDelete("DeleteId")]
         public async Task<ActionResult> DeleteEntity(int id)
         {
-            if (await GenericRepository.Delete(id)) return Ok();
+            if (await GenericRepository.DeleteAsync(id)) return Ok();
             return new ConflictResult();
         }
         
         [HttpDelete("Delete")]
         public async Task<ActionResult> DeleteEntity(TEntity entity)
         {
-            if (await GenericRepository.Delete(entity)) return Ok();
+            if (await GenericRepository.DeleteAsync(entity)) return Ok();
             return new ConflictResult();
         }
     }

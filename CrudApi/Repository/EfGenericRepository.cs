@@ -22,7 +22,7 @@ namespace CrudApi.Repository
             Logger = logger;
         }
         
-        public async Task<bool> Create(TEntity entity)
+        public async Task<bool> CreateAsync(TEntity entity)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace CrudApi.Repository
             }
         }
 
-        public async Task<TEntity> Get(int id)
+        public async Task<TEntity> GetAsync(int id)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace CrudApi.Repository
             }
         }
         
-        public async Task<IEnumerable<TEntity>> Get()
+        public async Task<IEnumerable<TEntity>> GetAsync()
         {
             try
             {
@@ -63,7 +63,7 @@ namespace CrudApi.Repository
             }
         }
 
-        public async Task<bool> Update(TEntity entity)
+        public async Task<bool> UpdateAsync(TEntity entity)
         {
             try
             {
@@ -78,12 +78,12 @@ namespace CrudApi.Repository
             }
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
             try
             {
-                TEntity entity = await Get(id);
-                await Delete(entity);
+                TEntity entity = await GetAsync(id);
+                await DeleteAsync(entity);
                 return true;
             }
             catch (Exception e)
@@ -93,7 +93,7 @@ namespace CrudApi.Repository
             }
         }
         
-        public async Task<bool> Delete(TEntity entity)
+        public async Task<bool> DeleteAsync(TEntity entity)
         {
             try
             {
