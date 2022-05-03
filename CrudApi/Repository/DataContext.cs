@@ -11,7 +11,7 @@ namespace CrudApi.Repository
         
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.EnsureCreated(); // убираем, если используем миграции
         }
     }
 }
