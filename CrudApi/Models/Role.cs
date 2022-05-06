@@ -8,7 +8,6 @@ namespace CrudApi.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        // в задании не уточнили, нужно ли чтобы роль сама ссылалась на список пользователей
         public List<User> Users { get; set; }
 
         public Role()

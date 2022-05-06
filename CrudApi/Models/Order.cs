@@ -9,7 +9,6 @@ namespace CrudApi.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
-        // в задании не уточнили, нужно ли чтобы заказ сам ссылался на пользователя
         public User User { get; set; }
     }
 }

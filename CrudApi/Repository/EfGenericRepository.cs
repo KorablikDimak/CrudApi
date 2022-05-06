@@ -8,8 +8,6 @@ using Microsoft.EntityFrameworkCore;
 namespace CrudApi.Repository
 {
     public class EfGenericRepository<TEntity> : IGenericRepository<TEntity>, IDisposable where TEntity : class
-    // IDisposable использую по документации Microsoft. Лично неуверен в необходимости этого, т.к.
-    // насколько я знаю- платформа сама очищает неуправляемые ресурсы
     {
         private DataContext Context { get; }
         private DbSet<TEntity> DbSet { get; }
