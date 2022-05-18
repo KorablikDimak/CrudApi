@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CrudApi</name>
+    </assembly>
+    <members>
+        <member name="T:CrudApi.Authentication.SigningSymmetricKey">
+            <summary>
+            интерфейс IJwtSigningDecodingKey нужен на случай если для авторизации будет использоваться ассимитричное шифрования
+            </summary>
+        </member>
+        <member name="P:CrudApi.Authentication.SigningSymmetricKey.SecretKey">
+            <summary>
+            ключ для шифрования устанавливается лишь один раз и больше не должен меняться
+            </summary>
+        </member>
+        <member name="M:CrudApi.Controllers.AuthenticateController.GetJwtToken">
+            <summary>
+            метод для получения токена аутентификации, должен быть allowanonimus
+            </summary>
+            <returns>токен, который после нужно передавать в заголовке запроса к api</returns>
+        </member>
+        <member name="T:CrudApi.GenericControllerAttribute.GeneratedControllerAttribute">
+            <summary>
+            кастомный атрибут, который используем со всеми типами, что нужно использовать в обобщенном контроллере.
+            т.е. все из DataContext
+            </summary>
+        </member>
+        <member name="T:CrudApi.GenericControllerAttribute.GenericControllerRouteConvention">
+            <summary>
+            перебираем все контроллеры, и если они универсального типа, то
+            подбираем маршрут из атрибута и встраиваем его в этот контроллер
+            </summary>
+        </member>
+        <member name="T:CrudApi.GenericControllerAttribute.GenericTypeControllerFeatureProvider">
+            <summary>
+            использование инфраструктуры mvc для создания типизированных обобщенных контроллеров,
+            т.к. по умолчанию asp.net не видит контроллер EntityControllerTEntity и нужно либо создавать
+            вручную наследуемые от базового обобщенного контроллера типизированные контроллеры, либо
+            использовать автоматизированный механизм как в данном случае (удобно, если моделей будет очень много)
+            </summary>
+        </member>
+        <member name="T:CrudApi.Repository.IGenericRepository`1">
+            <summary>
+            используются только асинхронные методы.
+            при необходимости можно их вызывать синхронно или написать синхронные методы.
+            </summary>
+        </member>
+    </members>
+</doc>
